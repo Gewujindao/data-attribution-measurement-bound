@@ -1,0 +1,19 @@
+﻿B80 (abs 0.8) and B90rel (0.9 x exact) vs k, spherical SVD oracle, 3 random subsets each (k300 run)
+  k=25: B80 [20, 20, 19] (B80/k 0.79);  B90rel [19, 18, 18] (/k 0.73)
+  k=50: B80 [35, 35, 34] (B80/k 0.69);  B90rel [31, 32, 32] (/k 0.63)
+  k=100: B80 [61, 59, 58] (B80/k 0.59);  B90rel [56, 53, 54] (/k 0.54)
+  k=150: B80 [74, 76, 72] (B80/k 0.49);  B90rel [67, 69, 68] (/k 0.45)
+  k=200: B80 [89, 89, 87] (B80/k 0.44);  B90rel [79, 81, 80] (/k 0.40)
+  k=300: B80 [107] (B80/k 0.36);  B90rel [96] (/k 0.32)
+
+base: endpoint IF LDS 0.671
+  fraction of ||Y||^2 left after oracle-scaled IF prior: 0.480
+  prior + rank-B oracle on normalized residual (rescaled by true residual norm): B=0:0.671  B=5:0.708  B=10:0.737  B=20:0.776  B=30:0.805  B=50:0.837
+  prior + rank-B raw truncated SVD of residual: B=0:0.671  B=5:0.701  B=10:0.726  B=20:0.765  B=30:0.797  B=50:0.830
+B80 (abs 0.8) and B90rel (0.9 x exact) vs k, spherical SVD oracle, 3 random subsets each (k300 run)
+  k=25: exact 0.852; B80 [20, 20, 21] (B80/k 0.81);  B90rel [18, 18, 18] (/k 0.72)
+  k=50: exact 0.852; B80 [37, 40, 37] (B80/k 0.76);  B90rel [33, 34, 32] (/k 0.66)
+  k=100: exact 0.855; B80 [66, 64, 65] (B80/k 0.65);  B90rel [55, 54, 56] (/k 0.55)
+  k=150: exact 0.853; B80 [88, 90, 88] (B80/k 0.59);  B90rel [72, 72, 73] (/k 0.48)
+  k=200: exact 0.851; B80 [105, 108, 105] (B80/k 0.53);  B90rel [83, 84, 86] (/k 0.42)
+  k=297: exact 0.850; B80 [133] (B80/k 0.45);  B90rel [100] (/k 0.34)

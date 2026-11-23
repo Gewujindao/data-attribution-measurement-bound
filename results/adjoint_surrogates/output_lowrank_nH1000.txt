@@ -1,0 +1,15 @@
+﻿[lowrank] P=3466 T=400 test acc 0.980  1.2s
+  window 0: Ritz |lam| at index 1/5/10/20/50/100/420: 1.07 0.758 0.645 0.478 0.306 0.218 0.000162; negative among top 20: 0
+  window 1: Ritz |lam| at index 1/5/10/20/50/100/420: 0.988 0.685 0.483 0.293 0.147 0.0852 0.000226; negative among top 20: 1
+  window 5: Ritz |lam| at index 1/5/10/20/50/100/420: 0.41 0.283 0.223 0.138 0.0638 0.0338 3.86e-05; negative among top 20: 0
+  window 19: Ritz |lam| at index 1/5/10/20/50/100/420: 0.138 0.084 0.0676 0.0461 0.0201 0.0104 2.24e-06; negative among top 20: 0
+== test 4: nH=1000, q=1, rmax=420; subspaces learned in 31.3s; all 100 test points; exact LDS 0.869 ==
+  rank 5 (learning cost about 30 replay-equivalents if run with r+10 probes): LDS 0.395  mean centred cos 0.360 | + rank-B oracle on residual: B=10 0.538  B=20 0.643  (33.9s)
+  rank 10 (learning cost about 40 replay-equivalents if run with r+10 probes): LDS 0.440  mean centred cos 0.357 | + rank-B oracle on residual: B=10 0.560  B=20 0.651  (36.2s)
+  rank 20 (learning cost about 60 replay-equivalents if run with r+10 probes): LDS 0.478  mean centred cos 0.424 | + rank-B oracle on residual: B=10 0.591  B=20 0.668  (38.9s)
+  rank 50 (learning cost about 120 replay-equivalents if run with r+10 probes): LDS 0.531  mean centred cos 0.564 | + rank-B oracle on residual: B=10 0.652  B=20 0.711  (41.9s)
+  rank 100 (learning cost about 220 replay-equivalents if run with r+10 probes): LDS 0.601  mean centred cos 0.702 | + rank-B oracle on residual: B=10 0.708  B=20 0.749  (45.6s)
+  rank 200 (learning cost about 420 replay-equivalents if run with r+10 probes): LDS 0.708  mean centred cos 0.821 | + rank-B oracle on residual: B=10 0.769  B=20 0.799  (50.7s)
+  rank 400 (learning cost about 820 replay-equivalents if run with r+10 probes): LDS 0.763  mean centred cos 0.864 | + rank-B oracle on residual: B=10 0.803  B=20 0.825  (58.9s)
+total 58.9s
+{"elapsed_s": 62.0}

@@ -1,0 +1,134 @@
+readings (kappa = mean of the three tiers B=0.05k/0.1k/0.2k; betas = row medians at B=0.1k)
+model    spec rows  L*_S  L*_P  slope | kappa  kappa_hat | k05    k10    k20   | bW    bP    bW_hat bP_hat | R2_M  R2_row m<1E  Sp(m,mem) med m  med mem
+b        arch all  0.862 0.806 1.47  | -0.122 -0.128    | -0.131 -0.122 -0.115 | 1.29  1.54  1.29   1.57   | 0.43  0.25   0.07  +0.84     1.40   0.81
+w16      arch all  0.812 0.753 1.07  | -0.272 -0.260    | -0.251 -0.283 -0.281 | 0.86  1.42  0.95   1.44   | 0.23  0.05   0.43  +0.62     1.10   0.74
+w128     arch all  0.845 0.818 1.90  | +0.002 +0.002    | +0.006 -0.006 +0.006 | 1.84  1.93  1.88   1.92   | 0.45  0.30   0.01  +0.93     1.60   1.14
+b_s1     arch all  0.840 0.809 1.36  | -0.209 -0.211    | -0.208 -0.225 -0.193 | 1.10  1.57  1.12   1.58   | 0.38  0.29   0.54  +0.65     1.14   0.95
+w128_s1  arch all  0.841 0.806 2.01  | -0.014 -0.019    | -0.023 -0.020 +0.002 | 1.81  2.06  1.97   2.05   | 0.55  0.36   0.02  +0.93     1.52   0.98
+b        a10  all  0.772 0.767 1.47  | -0.111 -0.107    | -0.094 -0.126 -0.114 | 1.23  1.60  1.29   1.57   | 0.43  0.25   0.07  +0.84     1.40   0.81
+b_s1     a10  all  0.744 0.748 1.30  | -0.226 -0.174    | -0.238 -0.241 -0.198 | 1.00  1.55  1.12   1.58   | 0.38  0.29   0.54  +0.65     1.14   0.95
+w128     a10  all  0.782 0.783 1.94  | -0.009 +0.003    | -0.007 -0.020 -0.000 | 1.82  1.98  1.88   1.92   | 0.45  0.30   0.01  +0.93     1.60   1.14
+w128_s1  a10  all  0.779 0.782 2.03  | -0.020 -0.015    | -0.020 -0.029 -0.011 | 1.94  2.07  1.97   2.05   | 0.55  0.36   0.02  +0.93     1.52   0.98
+bc       a01  all  0.847 0.439 0.91  | -0.203 -0.199    | -0.264 -0.227 -0.118 | 0.79  2.16  0.76   2.17   | 0.30  0.18   0.39  +0.86     1.12   0.32
+bc_s1    a01  all  0.843 0.567 0.99  | -0.198 -0.152    | -0.277 -0.206 -0.113 | 0.87  2.07  1.08   2.08   | 0.34  0.13   0.32  +0.90     1.12   0.27
+rare0    a01  A    0.876 0.880 1.45  | -0.018 -0.024    | -0.014 -0.009 -0.032 | 1.42  1.45  1.39   1.53   | 0.49  0.29   0.08  +0.84     1.25   0.70
+rare0    a01  B    0.875 0.847 1.48  | -0.077 -0.092    | -0.078 -0.072 -0.080 | 1.35  1.52  1.38   1.57   | 0.38  0.23   0.04  +0.84     1.34   0.82
+rare0_s1 a01  A    0.894 0.893 1.58  | +0.041 +0.022    | +0.061 +0.041 +0.020 | 1.61  1.48  1.51   1.44   | 0.54  0.29   0.13  +0.79     1.22   0.82
+rare0_s1 a01  B    0.870 0.837 1.49  | -0.084 -0.109    | -0.064 -0.096 -0.092 | 1.35  1.59  1.42   1.64   | 0.45  0.28   0.06  +0.84     1.37   0.94
+
+mechanism predictions (LOO decomposition, 1% truth)
+  M1: ('b', 'arch', 'all')                   hit  m<1 energy 0.07, median m 1.40
+  M2: ('b', 'arch', 'all')                   MISS  R2_M 0.43 R2_row 0.25
+  M3: ('b', 'arch', 'all')                   hit  kappa -0.122 kappa_hat -0.128
+  M4: ('b', 'arch', 'all')                   hit  Spearman +0.84
+  M5: ('b', 'arch', 'all') B=5               hit  kappa -0.131 E_piW[m] 1.33 E_piP[m] 1.56
+  M5: ('b', 'arch', 'all') B=10              hit  kappa -0.122 E_piW[m] 1.42 E_piP[m] 1.58
+  M5: ('b', 'arch', 'all') B=20              hit  kappa -0.115 E_piW[m] 1.47 E_piP[m] 1.58
+  M7: ('b', 'arch', 'all')                   hit  beta_W_hat 1.29
+  M1: ('w16', 'arch', 'all')                 MISS  m<1 energy 0.43, median m 1.10
+  M2: ('w16', 'arch', 'all')                 MISS  R2_M 0.23 R2_row 0.05
+  M3: ('w16', 'arch', 'all')                 hit  kappa -0.272 kappa_hat -0.260
+  M4: ('w16', 'arch', 'all')                 hit  Spearman +0.62
+  M5: ('w16', 'arch', 'all') B=5             hit  kappa -0.251 E_piW[m] 1.01 E_piP[m] 1.23
+  M5: ('w16', 'arch', 'all') B=10            hit  kappa -0.283 E_piW[m] 1.03 E_piP[m] 1.27
+  M5: ('w16', 'arch', 'all') B=20            hit  kappa -0.281 E_piW[m] 1.06 E_piP[m] 1.31
+  M7: ('w16', 'arch', 'all')                 hit  beta_W_hat 0.95
+  M1: ('w128', 'arch', 'all')                hit  m<1 energy 0.01, median m 1.60
+  M2: ('w128', 'arch', 'all')                MISS  R2_M 0.45 R2_row 0.30
+  M4: ('w128', 'arch', 'all')                hit  Spearman +0.93
+  M7: ('w128', 'arch', 'all')                hit  beta_W_hat 1.88
+  M1: ('b_s1', 'arch', 'all')                MISS  m<1 energy 0.54, median m 1.14
+  M2: ('b_s1', 'arch', 'all')                MISS  R2_M 0.38 R2_row 0.29
+  M3: ('b_s1', 'arch', 'all')                hit  kappa -0.209 kappa_hat -0.211
+  M4: ('b_s1', 'arch', 'all')                hit  Spearman +0.65
+  M5: ('b_s1', 'arch', 'all') B=5            hit  kappa -0.208 E_piW[m] 1.10 E_piP[m] 1.31
+  M5: ('b_s1', 'arch', 'all') B=10           hit  kappa -0.225 E_piW[m] 1.15 E_piP[m] 1.32
+  M5: ('b_s1', 'arch', 'all') B=20           hit  kappa -0.193 E_piW[m] 1.19 E_piP[m] 1.33
+  M7: ('b_s1', 'arch', 'all')                hit  beta_W_hat 1.12
+  M1: ('w128_s1', 'arch', 'all')             hit  m<1 energy 0.02, median m 1.52
+  M2: ('w128_s1', 'arch', 'all')             hit  R2_M 0.55 R2_row 0.36
+  M4: ('w128_s1', 'arch', 'all')             hit  Spearman +0.93
+  M7: ('w128_s1', 'arch', 'all')             hit  beta_W_hat 1.97
+  M1: ('bc', 'a01', 'all')                   MISS  m<1 energy 0.39, median m 1.12
+  M2: ('bc', 'a01', 'all')                   MISS  R2_M 0.30 R2_row 0.18
+  M3: ('bc', 'a01', 'all')                   hit  kappa -0.203 kappa_hat -0.199
+  M4: ('bc', 'a01', 'all')                   hit  Spearman +0.86
+  M5: ('bc', 'a01', 'all') B=5               hit  kappa -0.264 E_piW[m] 0.60 E_piP[m] 1.82
+  M5: ('bc', 'a01', 'all') B=10              hit  kappa -0.227 E_piW[m] 0.69 E_piP[m] 1.87
+  M5: ('bc', 'a01', 'all') B=20              hit  kappa -0.118 E_piW[m] 0.76 E_piP[m] 1.81
+  M7: ('bc', 'a01', 'all')                   MISS  beta_W_hat 0.76
+  M1: ('bc_s1', 'a01', 'all')                MISS  m<1 energy 0.32, median m 1.12
+  M2: ('bc_s1', 'a01', 'all')                MISS  R2_M 0.34 R2_row 0.13
+  M3: ('bc_s1', 'a01', 'all')                hit  kappa -0.198 kappa_hat -0.152
+  M4: ('bc_s1', 'a01', 'all')                hit  Spearman +0.90
+  M5: ('bc_s1', 'a01', 'all') B=5            hit  kappa -0.277 E_piW[m] 1.09 E_piP[m] 1.99
+  M5: ('bc_s1', 'a01', 'all') B=10           hit  kappa -0.206 E_piW[m] 1.21 E_piP[m] 1.99
+  M5: ('bc_s1', 'a01', 'all') B=20           hit  kappa -0.113 E_piW[m] 1.29 E_piP[m] 1.78
+  M7: ('bc_s1', 'a01', 'all')                hit  beta_W_hat 1.08
+  M1: ('rare0', 'a01', 'A')                  hit  m<1 energy 0.08, median m 1.25
+  M2: ('rare0', 'a01', 'A')                  MISS  R2_M 0.49 R2_row 0.29
+  M4: ('rare0', 'a01', 'A')                  hit  Spearman +0.84
+  M5: ('rare0', 'a01', 'A') B=20             MISS  kappa -0.032 E_piW[m] 1.45 E_piP[m] 1.41
+  M7: ('rare0', 'a01', 'A')                  hit  beta_W_hat 1.39
+  M1: ('rare0', 'a01', 'B')                  hit  m<1 energy 0.04, median m 1.34
+  M2: ('rare0', 'a01', 'B')                  MISS  R2_M 0.38 R2_row 0.23
+  M3: ('rare0', 'a01', 'B')                  hit  kappa -0.077 kappa_hat -0.092
+  M4: ('rare0', 'a01', 'B')                  hit  Spearman +0.84
+  M5: ('rare0', 'a01', 'B') B=5              MISS  kappa -0.078 E_piW[m] 1.52 E_piP[m] 1.52
+  M5: ('rare0', 'a01', 'B') B=10             hit  kappa -0.072 E_piW[m] 1.52 E_piP[m] 1.52
+  M5: ('rare0', 'a01', 'B') B=20             MISS  kappa -0.080 E_piW[m] 1.52 E_piP[m] 1.52
+  M7: ('rare0', 'a01', 'B')                  hit  beta_W_hat 1.38
+  M1: ('rare0_s1', 'a01', 'A')               hit  m<1 energy 0.13, median m 1.22
+  M2: ('rare0_s1', 'a01', 'A')               hit  R2_M 0.54 R2_row 0.29
+  M3: ('rare0_s1', 'a01', 'A')               hit  kappa +0.041 kappa_hat +0.022
+  M4: ('rare0_s1', 'a01', 'A')               hit  Spearman +0.79
+  M5: ('rare0_s1', 'a01', 'A') B=5           hit  kappa +0.061 E_piW[m] 1.58 E_piP[m] 1.38
+  M5: ('rare0_s1', 'a01', 'A') B=10          hit  kappa +0.041 E_piW[m] 1.55 E_piP[m] 1.38
+  M7: ('rare0_s1', 'a01', 'A')               hit  beta_W_hat 1.51
+  M1: ('rare0_s1', 'a01', 'B')               hit  m<1 energy 0.06, median m 1.37
+  M2: ('rare0_s1', 'a01', 'B')               MISS  R2_M 0.45 R2_row 0.28
+  M3: ('rare0_s1', 'a01', 'B')               hit  kappa -0.084 kappa_hat -0.109
+  M4: ('rare0_s1', 'a01', 'B')               hit  Spearman +0.84
+  M5: ('rare0_s1', 'a01', 'B') B=5           hit  kappa -0.064 E_piW[m] 1.54 E_piP[m] 1.58
+  M5: ('rare0_s1', 'a01', 'B') B=10          hit  kappa -0.096 E_piW[m] 1.52 E_piP[m] 1.59
+  M5: ('rare0_s1', 'a01', 'B') B=20          hit  kappa -0.092 E_piW[m] 1.56 E_piP[m] 1.57
+  M7: ('rare0_s1', 'a01', 'B')               hit  beta_W_hat 1.42
+  M6: width order of LOO contrast            hit  contrast w16 +0.440 b +0.191 w128 +0.022; rise of bW_hat +0.92 vs bP_hat +0.48
+
+new settings
+  T1: bc                                     hit  kappa -0.203 bW 0.79 bP 2.16 L*_S 0.847
+  T1: bc_s1                                  hit  kappa -0.198 bW 0.87 bP 2.07 L*_S 0.843
+  T2: w128 interval/sign                     MISS  kappa(10%) -0.009
+  T2: w128 bW>bP                             MISS  bW 1.82 bP 1.98
+  T2: w128 L*_S(10%)                         hit  L*_S 0.782
+  T2: w128 pair term Delta_W>Delta_perp      MISS  Delta_W -0.06 Delta_perp +0.06
+      contrast c=(bP-bW)/beta at 10%: +0.086
+  T2: w128_s1 interval/sign                  MISS  kappa(10%) -0.020
+  T2: w128_s1 bW>bP                          MISS  bW 1.94 bP 2.07
+  T2: w128_s1 L*_S(10%)                      hit  L*_S 0.779
+  T2: w128_s1 pair term Delta_W>Delta_perp   MISS  Delta_W -0.04 Delta_perp +0.02
+      contrast c=(bP-bW)/beta at 10%: +0.066
+  T2: both positive beyond zero band         MISS  kappas -0.009 -0.020 band 0.020
+  T4: b                                      MISS  kappa(10%) -0.111, minus kappa(1%) +0.011
+  T4: b pair term Delta_W>Delta_perp         MISS  Delta_W -0.06 Delta_perp +0.03
+      contrast c=(bP-bW)/beta at 10%: +0.254
+  T4: b_s1                                   MISS  kappa(10%) -0.226, minus kappa(1%) -0.017
+  T4: b_s1 pair term Delta_W>Delta_perp      MISS  Delta_W -0.12 Delta_perp -0.03
+      contrast c=(bP-bW)/beta at 10%: +0.429
+  T3: rare0 A kappa(0.2k)>0                  MISS  A tiers [-0.014, -0.009, -0.032]
+  T3: rare0 A three-tier in [-0.05,0.20]     hit  -0.018
+  T3: rare0 kappa_A-kappa_B>=0.10 every tier MISS  diffs [0.065, 0.063, 0.048]
+  T3: rare0 (E_piW-E_piP)[m] A > B           hit  A +0.040 B +0.000
+  T3: rare0 B control                        hit  -0.077
+  T3: rare0 L*_S(A)>=0.6                     hit  0.876
+  T3: rare0_s1 A kappa(0.2k)>0               hit  A tiers [0.061, 0.041, 0.02]
+  T3: rare0_s1 A three-tier in [-0.05,0.20]  hit  +0.041
+  T3: rare0_s1 kappa_A-kappa_B>=0.10 every tier hit  diffs [0.126, 0.137, 0.112]
+  T3: rare0_s1 (E_piW-E_piP)[m] A > B        hit  A +0.163 B -0.009
+  T3: rare0_s1 B control                     hit  -0.084
+  T3: rare0_s1 L*_S(A)>=0.6                  hit  0.894
+
+rule 3 (prop 4): M3 8/8, M2 2/11, M5 21/24
+rule 4 (prop 6): Delta_W>Delta_perp in 0/4 model x seed
+rule 2 (positive construction) inputs: T2 w128 -0.009, T2 w128_s1 -0.020, T3A rare0 -0.032, T3A rare0_s1 +0.020
+hit counts: M1 7/11, M2 2/11, M3 8/8, M4 11/11, M5 21/24, M7 10/11, M6 1/1, T1 2/2, T2 2/9, T4 0/4, T3 10/12

@@ -1,0 +1,85 @@
+﻿k=100 N=1000 E=20 P=3466 train acc 1.000 test acc 0.980
+
+== exact metagradient Y ==
+LDS 1%: mean 0.869  min 0.624  bottom-quartile-norm 0.867
+LDS 5%: mean 0.798  min 0.505  bottom-quartile-norm 0.774
+  1%: Pearson(pred,actual) pooled-per-point mean 0.820; |actual| median 3.55e-02, slope median 1.452
+  5%: Pearson(pred,actual) pooled-per-point mean 0.786; |actual| median 1.28e-01, slope median 1.398
+
+== cheap baselines ==
+grad dot (endpoint, identity Hessian): 1% 0.338  5% 0.432
+  IF exact Hessian [abs] damping 1e-05*lmax: 1% 0.183  5% 0.163
+  IF exact Hessian [abs] damping 0.0001*lmax: 1% 0.326  5% 0.326
+  IF exact Hessian [abs] damping 0.001*lmax: 1% 0.517  5% 0.526
+  IF exact Hessian [abs] damping 0.01*lmax: 1% 0.671  5% 0.703
+  IF exact Hessian [abs] damping 0.1*lmax: 1% 0.579  5% 0.652
+  IF exact Hessian [abs] damping 1*lmax: 1% 0.396  5% 0.490
+  IF exact Hessian [clip] damping 1e-05*lmax: 1% 0.252  5% 0.218
+  IF exact Hessian [clip] damping 0.0001*lmax: 1% 0.272  5% 0.239
+  IF exact Hessian [clip] damping 0.001*lmax: 1% 0.411  5% 0.393
+  IF exact Hessian [clip] damping 0.01*lmax: 1% 0.668  5% 0.696
+  IF exact Hessian [clip] damping 0.1*lmax: 1% 0.580  5% 0.653
+  IF exact Hessian [clip] damping 1*lmax: 1% 0.396  5% 0.490
+best endpoint IF (oracle-tuned damping): 1% 0.671 5% 0.703 (abs, 0.01)
+TracIn (test grad at end, train grads along path): 1% 0.347 5% 0.429
+TracIn (both grads at each step): 1% 0.339 5% 0.415
+
+== b1/b2 spectra ==
+raw: PR 37.6  entropy-erank 53.6  rank90 50  rank99 83  (k=100)  s1/s10 1.6
+row-normalized: PR 47.8  entropy-erank 64.9  rank90 60  rank99 91  (k=100)  s1/s10 1.5
+col-normalized: PR 43.6  entropy-erank 58.9  rank90 54  rank99 87  (k=100)  s1/s10 1.4
+row norm span log10(max/min) 0.68; col norm span 1.80; col norm top10% share of ||Y||^2 0.54
+
+== b3 correlations ==
+test-test |cos|: same class median 0.107, diff class median 0.054; same-class mean cos 0.126
+train-train |cos| (over test points): same class median 0.177, diff 0.082
+
+== b4 concentration ==
+  top 1% train points hold 0.42 of row L2^2 (mean over test points)
+  top 5% train points hold 0.68 of row L2^2 (mean over test points)
+  top 10% train points hold 0.80 of row L2^2 (mean over test points)
+  top 25% train points hold 0.93 of row L2^2 (mean over test points)
+  same-class train points hold 0.44 of row L2^2 (class share 0.10)
+  top-20 train set Jaccard between same-class test points: mean 0.120
+
+== b5 training stage ==
+  energy share by epoch: 0.589 0.122 0.045 0.021 0.013 0.008 0.005 0.005 0.004 0.004 0.004 0.004 0.004 0.004 0.006 0.008 0.012 0.020 0.060 0.065
+  first 1 epochs only: LDS 1% 0.452 | last 1 epochs only: 0.334
+  first 2 epochs only: LDS 1% 0.528 | last 2 epochs only: 0.396
+  first 4 epochs only: LDS 1% 0.583 | last 4 epochs only: 0.502
+  first 6 epochs only: LDS 1% 0.612 | last 6 epochs only: 0.573
+  first 10 epochs only: LDS 1% 0.653 | last 10 epochs only: 0.660
+  single-epoch LDS 1%: 0.45 0.43 0.41 0.42 0.44 0.47 0.50 0.52 0.52 0.53 0.55 0.56 0.57 0.57 0.57 0.58 0.56 0.53 0.44 0.33
+  cos(Y^(e), Y) per epoch: 0.60 0.57 0.56 0.57 0.55 0.57 0.62 0.62 0.63 0.63 0.64 0.64 0.64 0.63 0.61 0.58 0.54 0.49 0.37 0.27
+
+== a) oracle curves: LDS 1% (5%) vs B ==
+a1 test-side spherical SVD oracle: B=1:0.102(0.096)  B=2:0.171(0.153)  B=5:0.294(0.285)  B=10:0.437(0.397)  B=20:0.570(0.534)  B=30:0.648(0.612)  B=50:0.761(0.712)  B=80:0.846(0.780)  B=100:0.869(0.798)
+   B80 = 80  (B/k = 0.80)
+   raw truncated SVD: B=1:0.092(0.065)  B=2:0.133(0.113)  B=5:0.222(0.201)  B=10:0.328(0.326)  B=20:0.493(0.467)  B=30:0.609(0.561)  B=50:0.736(0.689)  B=80:0.843(0.775)  B=100:0.869(0.798)
+   B80 = 80  (B/k = 0.80)
+a2 train-side col-normalized SVD oracle: B=1:0.086(0.065)  B=2:0.143(0.140)  B=5:0.270(0.213)  B=10:0.379(0.333)  B=20:0.513(0.445)  B=30:0.592(0.536)  B=50:0.720(0.665)  B=80:0.833(0.766)  B=100:0.869(0.798)
+   B80 = 80  (B/k = 0.80)
+a3 sparse oracle (top-s per row): s=5:0.281  s=10:0.386  s=20:0.491  s=50:0.635  s=100:0.727  s=200:0.805  s=500:0.861  s=1000:0.869
+a6 column-subset oracle (B forward replays on the B largest-norm training points): B=10:0.115  B=20:0.198  B=50:0.332  B=100:0.461  B=200:0.681  B=500:0.818
+a7 scaling with k: spherical-SVD oracle on random subsets of k' test points
+   k'=25: PR(row-norm) 18.7 (PR/k' 0.75); exact 0.878; B=2(10%):0.307  B=5(20%):0.510  B=8(30%):0.615  B=12(50%):0.693  B=20(80%):0.827
+   k'=50: PR(row-norm) 33.4 (PR/k' 0.67); exact 0.874; B=5(10%):0.358  B=10(20%):0.519  B=15(30%):0.612  B=25(50%):0.730  B=40(80%):0.837
+   k'=100: PR(row-norm) 47.8 (PR/k' 0.48); exact 0.869; B=10(10%):0.437  B=20(20%):0.570  B=30(30%):0.648  B=50(50%):0.761  B=80(80%):0.846
+a4 cluster oracle (k-means on true normalized rows; centroid = one replay of the cluster-sum test function):
+   B=5: norm-weighted 0.252  raw-sum 0.240
+   B=10: norm-weighted 0.354  raw-sum 0.339
+   B=20: norm-weighted 0.478  raw-sum 0.466
+   B=30: norm-weighted 0.549  raw-sum 0.541
+   B=50: norm-weighted 0.676  raw-sum 0.672
+a4 cheap clustering by test label (B=10): raw-sum 0.359
+   cheap k-means on endpoint test gradients B=10: raw-sum 0.360
+   cheap k-means on endpoint test gradients B=20: raw-sum 0.452
+   cheap k-means on endpoint test gradients B=30: raw-sum 0.526
+   cheap k-means on endpoint test gradients B=50: raw-sum 0.667
+a5 combined oracle (rank-B spherical SVD + top-s residual per row) LDS 1%:
+   B=5 s=10: 0.422
+   B=5 s=50: 0.647
+   B=10 s=10: 0.534
+   B=10 s=50: 0.688
+   B=20 s=10: 0.630
+   B=20 s=50: 0.736

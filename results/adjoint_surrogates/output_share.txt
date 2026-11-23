@@ -1,0 +1,9 @@
+﻿[share] P=3466 T=400 test acc 0.980  1.1s
+== test 1 on 40 test points; exact rows LDS 0.867 ==
+  A0 zero Hessian: LDS 0.337  mean centred cos with exact 0.308  (2.5s)
+  A1b another random minibatch at theta_t: LDS 0.800  mean centred cos with exact 0.904  (6.3s)
+  A1 fixed 1000-sample Hessian at theta_t: LDS 0.871  mean centred cos with exact 0.990  (30.9s)
+  A2 fixed 1000-sample Hessian at window midpoint, W=20: LDS 0.862  mean centred cos with exact 0.982  (56.3s)
+  A2 fixed 1000-sample Hessian at window midpoint, W=100: LDS 0.711  mean centred cos with exact 0.804  (82.0s)
+total 82.0s
+{"elapsed_s": 84.7}

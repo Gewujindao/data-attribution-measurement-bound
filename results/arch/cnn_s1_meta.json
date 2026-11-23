@@ -1,0 +1,1 @@
+{"name": "cnn_s1", "P": 6138, "N": 1000, "P_over_N": 6.138, "train_loss": 0.009077857911638489, "train_acc": 1.0, "test_acc": 0.98}

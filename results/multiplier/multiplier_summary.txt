@@ -1,0 +1,121 @@
+Q1  weighted decomposition of m_ji = G/y over top-30% columns (weights y^2); shares of SS_T unless noted
+model    SS_W/SS_T | point-level share of SS_T (share of SS_B): RIF(lam_ES)  RIF(best lam)  mem/SI  mem  Psi(mem) | late: of SS_W  of SS_T | Spearman(mhat, mem/SI) RIF(lam_ES)
+w16      0.773     | 0.015 (0.07)  0.026 (0.11, lam 316.228)  0.013 (0.06)  0.001 (0.01)  0.002 (0.01) | 0.163  0.126 | +0.62 +0.62
+w16_s1   0.734     | 0.006 (0.02)  0.007 (0.03, lam 1000)  0.014 (0.05)  0.002 (0.01)  0.001 (0.00) | 0.361  0.265 | +0.66 +0.62
+b        0.728     | 0.051 (0.19)  0.049 (0.18, lam 1000)  0.034 (0.12)  0.004 (0.01)  0.001 (0.00) | 0.437  0.318 | +0.84 +0.85
+b_s1     0.623     | 0.059 (0.16)  0.066 (0.17, lam 31.6228)  0.000 (0.00)  0.001 (0.00)  0.002 (0.00) | 0.467  0.291 | +0.65 +0.66
+w128     0.786     | 0.124 (0.58)  0.124 (0.58, lam 3.16228)  0.035 (0.17)  0.027 (0.13)  0.021 (0.10) | 0.506  0.398 | +0.94 +0.92
+w128_s1  0.688     | 0.185 (0.59)  0.186 (0.60, lam 3.16228)  0.140 (0.45)  0.123 (0.39)  0.107 (0.34) | 0.497  0.342 | +0.95 +0.92
+  equal column weight (descriptive): w16 SS_W/SS_T 0.825, R2_B RIF 0.20 mem/SI 0.16 mem 0.10, late of SS_W 0.131; w16_s1 SS_W/SS_T 0.727, R2_B RIF 0.26 mem/SI 0.22 mem 0.18, late of SS_W 0.366; b SS_W/SS_T 0.661, R2_B RIF 0.60 mem/SI 0.38 mem 0.39, late of SS_W 0.403; b_s1 SS_W/SS_T 0.640, R2_B RIF 0.35 mem/SI 0.17 mem 0.15, late of SS_W 0.443; w128 SS_W/SS_T 0.701, R2_B RIF 0.72 mem/SI 0.55 mem 0.51, late of SS_W 0.469; w128_s1 SS_W/SS_T 0.632, R2_B RIF 0.73 mem/SI 0.60 mem 0.56, late of SS_W 0.444
+  absolute (no fit) R^2 on SS_B: w16 RIF -4.40 mem/SI -18.54 Psi -22.15; w16_s1 RIF -4.71 mem/SI -18.84 Psi -19.85; b RIF -0.53 mem/SI -6.17 Psi -12.49; b_s1 RIF -1.61 mem/SI -17.05 Psi -24.06; w128 RIF +0.43 mem/SI -8.03 Psi -14.62; w128_s1 RIF +0.42 mem/SI -1.33 Psi -2.88
+  RIF(lam_ES) median / 90% quantile over C; on mhat<1 columns: n, median RIF (lam_ES | best), share below the C median; share with mem/SI<1; median mhat/(mem/SI):
+   w16      RIF med 1.340 q90 3.350 | mhat<1: n= 87  RIF 1.068 | 1.002  below-median 0.79  mem/SI<1 0.26 | median mhat/(mem/SI) 0.72
+   w16_s1   RIF med 1.414 q90 3.149 | mhat<1: n= 56  RIF 1.133 | 1.001  below-median 0.75  mem/SI<1 0.18 | median mhat/(mem/SI) 0.73
+   b        RIF med 1.452 q90 2.797 | mhat<1: n=  6  RIF 1.990 | 1.007  below-median 0.50  mem/SI<1 0.17 | median mhat/(mem/SI) 0.85
+   b_s1     RIF med 1.430 q90 2.755 | mhat<1: n=122  RIF 1.110 | 1.027  below-median 0.78  mem/SI<1 0.11 | median mhat/(mem/SI) 0.67
+   w128     RIF med 1.430 q90 2.439 | mhat<1: n=  0  RIF nan | nan  below-median nan  mem/SI<1 nan | median mhat/(mem/SI) 0.94
+   w128_s1  RIF med 1.393 q90 2.528 | mhat<1: n=  1  RIF 3.121 | 4.108  below-median 0.00  mem/SI<1 0.00 | median mhat/(mem/SI) 0.96
+
+Q2  column concentration over test rows (top-30% columns of the row group): median n80 and PR, high vs low quartile of mhat and of mem
+model    rows | n80 hi-m / lo-m (ratio) | PR hi-m / lo-m (ratio) | n80 hi-mem / lo-mem (ratio) | [rare class-0 training points in C: n, median n80]
+w16        |  18.0 /  15.0 (1.20) |  12.9 /   8.7 (1.48) |  18.0 /  16.0 (1.12) | kept by W hi-m / lo-m 0.44 / 0.81
+w16_s1     |  13.0 /  15.0 (0.87) |   9.1 /   9.3 (0.97) |  15.0 /  15.0 (1.00) | kept by W hi-m / lo-m 0.35 / 0.71
+b          |  16.0 /  19.0 (0.84) |   9.0 /  13.4 (0.67) |  18.0 /  17.0 (1.06) | kept by W hi-m / lo-m 0.20 / 0.30
+b_s1       |  14.0 /   3.0 (4.67) |   8.2 /   2.0 (4.05) |  16.0 /   5.0 (3.20) | kept by W hi-m / lo-m 0.31 / 0.74
+w128       |  13.0 /  10.0 (1.30) |   7.3 /   5.7 (1.27) |  15.0 /   8.0 (1.88) | kept by W hi-m / lo-m 0.23 / 0.22
+w128_s1    |  11.0 /   7.0 (1.57) |   6.6 /   4.7 (1.41) |  13.0 /   6.0 (2.17) | kept by W hi-m / lo-m 0.21 / 0.20
+rare0_A    |  21.0 /  23.0 (0.91) |  17.4 /  19.4 (0.90) |  22.0 /  23.0 (0.96) | kept by W hi-m / lo-m 0.47 / 0.70 | class-0 in C: 10, n80 42.5
+rare0_B    |  16.0 /  18.0 (0.89) |   9.8 /  12.2 (0.80) |  18.0 /  17.0 (1.06) | kept by W hi-m / lo-m 0.23 / 0.37 | class-0 in C: 10, n80 10.5
+rare0_s1_A |  22.0 /  26.0 (0.85) |  20.4 /  26.2 (0.78) |  24.0 /  26.0 (0.92) | kept by W hi-m / lo-m 0.55 / 0.72 | class-0 in C: 10, n80 35.0
+rare0_s1_B |  18.0 /  20.0 (0.90) |  12.0 /  11.7 (1.02) |  19.0 /  18.0 (1.06) | kept by W hi-m / lo-m 0.25 / 0.37 | class-0 in C: 10, n80 11.0
+
+Q3  m<1 energy share (all columns, mhat pooled over all rows), measurement checks, half weight, sweeps, sub-additivity at 10%
+model    m<1 share | Q3a col-norm ratio (m<1 / m>=1) | Q3b sign agree, cols with median ratio<1 | Q3d half: convex ok / n, concave ok / n | S_add 10% | S_add 1% | L*_S 10%
+w16      0.428     | 1.17 (n_low 87)                | 0.96  0.76                          | 55/58 (med half 0.94), 120/122  | 0.830  | 0.970 | 0.641
+w16_s1   0.230     | 1.18 (n_low 56)                | 0.95  0.59                          | 24/32 (med half 0.95), 139/141  | 0.877  | 0.979 | 0.675
+b        0.073     | 1.06 (n_low 6)                | 0.83  0.33                          | 1/5 (med half 1.26), 214/215  | 0.978  | 0.994 | 0.772
+b_s1     0.540     | 1.09 (n_low 122)                | 0.97  0.57                          | 90/117 (med half 0.79), 124/137  | 0.952  | 0.987 | 0.744
+w64      0.013     | 0.71 (n_low 5)                | 1.00  0.20                          |    -     | 1.016  | 0.999 | 0.802
+w64_s1   0.042     | 0.76 (n_low 3)                | 0.99  0.33                          |    -     | 0.997  | 0.997 | 0.776
+w128     0.013     | nan (n_low 0)                | nan  nan                          |    -     | 1.015  | 1.000 | 0.782
+w128_s1  0.020     | 2.10 (n_low 1)                | 0.72  0.00                          |    -     | 1.010  | 1.000 | 0.779
+b_i05    0.105     | 1.14 (n_low 9)                | 0.91  0.33                          |    -     | 0.978  | nan | 0.741
+b_i05_s1 0.047     | 1.85 (n_low 5)                | 0.86  0.80                          |    -     | 0.986  | nan | 0.773
+b_i2     0.224     | 1.17 (n_low 50)                | 0.98  0.62                          |    -     | 0.875  | nan | 0.715
+b_i2_s1  0.778     | 1.18 (n_low 199)                | 0.88  0.95                          |    -     | 0.834  | nan | 0.520
+  seed-mean m<1 share: w16 0.329, b 0.307, w64 0.027, w128 0.016, b_i05 0.076, b_i2 0.501
+
+prediction checks
+  Q1a w16                                      MISS  SS_W/SS_T 0.773
+  Q1b(ms>=0.30 of SS_B) w16                    MISS  0.06
+  Q1b(RIF_ES<ms) w16                           MISS  RIF 0.07 vs 0.06
+  Q1b(RIFbest<ms) w16                          MISS  RIF 0.11 vs 0.06
+  Q1c w16                                      hit  0.163
+  Q1d w16                                      hit  1.068
+  Q1e(sp) w16                                  hit  +0.62
+  Q1e(low) w16                                 MISS  0.26
+  Q1a w16_s1                                   hit  SS_W/SS_T 0.734
+  Q1b(ms>=0.30 of SS_B) w16_s1                 MISS  0.05
+  Q1b(RIF_ES<ms) w16_s1                        hit  RIF 0.02 vs 0.05
+  Q1b(RIFbest<ms) w16_s1                       hit  RIF 0.03 vs 0.05
+  Q1c w16_s1                                   hit  0.361
+  Q1d w16_s1                                   MISS  1.133
+  Q1e(sp) w16_s1                               hit  +0.66
+  Q1e(low) w16_s1                              MISS  0.18
+  Q1a b                                        hit  SS_W/SS_T 0.728
+  Q1b(ms>=0.30 of SS_B) b                      MISS  0.12
+  Q1b(RIF_ES<ms) b                             MISS  RIF 0.19 vs 0.12
+  Q1b(RIFbest<ms) b                            MISS  RIF 0.18 vs 0.12
+  Q1c b                                        hit  0.437
+  Q1d b                                        MISS  1.990
+  Q1e(sp) b                                    hit  +0.84
+  Q1a b_s1                                     hit  SS_W/SS_T 0.623
+  Q1b(ms>=0.30 of SS_B) b_s1                   MISS  0.00
+  Q1b(RIF_ES<ms) b_s1                          MISS  RIF 0.16 vs 0.00
+  Q1b(RIFbest<ms) b_s1                         MISS  RIF 0.17 vs 0.00
+  Q1c b_s1                                     hit  0.467
+  Q1d b_s1                                     MISS  1.110
+  Q1e(sp) b_s1                                 hit  +0.65
+  Q1e(low) b_s1                                MISS  0.11
+  Q1a w128                                     MISS  SS_W/SS_T 0.786
+  Q1b(ms>=0.30 of SS_B) w128                   MISS  0.17
+  Q1b(RIF_ES<ms) w128                          MISS  RIF 0.58 vs 0.17
+  Q1b(RIFbest<ms) w128                         MISS  RIF 0.58 vs 0.17
+  Q1c w128                                     hit  0.506
+  Q1e(sp) w128                                 hit  +0.94
+  Q1a w128_s1                                  hit  SS_W/SS_T 0.688
+  Q1b(ms>=0.30 of SS_B) w128_s1                hit  0.45
+  Q1b(RIF_ES<ms) w128_s1                       MISS  RIF 0.59 vs 0.45
+  Q1b(RIFbest<ms) w128_s1                      MISS  RIF 0.60 vs 0.45
+  Q1c w128_s1                                  hit  0.497
+  Q1d w128_s1                                  MISS  3.121
+  Q1e(sp) w128_s1                              hit  +0.95
+  Q2a(m) w16                                   MISS  1.20
+  Q2a(mem) w16                                 MISS  1.12
+  Q2a(m) w16_s1                                MISS  0.87
+  Q2a(mem) w16_s1                              MISS  1.00
+  Q2a(m) b                                     MISS  0.84
+  Q2a(mem) b                                   MISS  1.06
+  Q2a(m) b_s1                                  MISS  4.67
+  Q2a(mem) b_s1                                MISS  3.20
+  Q2a(m) w128                                  MISS  1.30
+  Q2a(mem) w128                                MISS  1.88
+  Q2a(m) w128_s1                               MISS  1.57
+  Q2a(mem) w128_s1                             MISS  2.17
+  Q2b rare0                                    MISS  A 0.91 B 0.89
+  Q2b rare0_s1                                 MISS  A 0.85 B 0.90
+  Q3a w16                                      hit  1.17
+  Q3b w16                                      MISS  0.96 0.76
+  Q3a w16_s1                                   hit  1.18
+  Q3b w16_s1                                   MISS  0.95 0.59
+  Q3a b                                        hit  1.06
+  Q3b b                                        MISS  0.83 0.33
+  Q3a b_s1                                     hit  1.09
+  Q3b b_s1                                     MISS  0.97 0.57
+  Q3c w16_s1                                   hit  0.230
+  Q3d convex                                   hit  170/212
+  Q3d concave                                  hit  597/615
+  Q3e width                                    hit  0.329 > 0.307 > 0.027 > 0.016
+  Q3f init                                     MISS  0.076 > 0.307 > 0.501
+  Q3g                                          hit  Spearman +0.94 over 12; S_add<1 where share>=0.2: True; >=0.97 where share<=0.05: True
+hit counts: Q1a 4/6, Q1b(ms>=0.30 1/6, Q1b(RIF_ES<ms) 1/6, Q1b(RIFbest<ms) 1/6, Q1c 6/6, Q1d 1/5, Q1e(sp) 6/6, Q1e(low) 0/3, Q2a(m) 0/6, Q2a(mem) 0/6, Q2b 0/2, Q3a 4/4, Q3b 0/4, Q3c 1/1, Q3d 2/2, Q3e 1/1, Q3f 0/1, Q3g 1/1

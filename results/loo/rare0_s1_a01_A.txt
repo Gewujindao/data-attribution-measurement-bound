@@ -1,0 +1,8 @@
+[rare0_s1 a01 rows=A] k=100 N=1000 M=200 deleted=10  L*_P 0.893  L*_S 0.894  slope(median) 1.58
+  LOO: R2(g-y | test-independent m) 0.542  vs per-row scalar 0.288;  energy share of columns with m<1 0.127;  Spearman(m, mem) top30% +0.79;  median m 1.22, mem 0.82, m/Psi(mem) 0.86
+      overall LOO slope (median) 1.52;  corr(p, LOO-linear) 0.897;  Pearson(LOO-linear, actual) 0.997
+   B  |  kappa  kappa_f | beta_W beta_perp beta | rho   | LOO: bW_hat bP_hat kappa_hat | M-model: bW bP | E_piW[m] E_piP[m] | E_piW[mem] E_piP[mem] | sign agree(row) kappa vs kappa_hat
+    5 | +0.061  +0.067 | 1.65   1.47     1.58 | 0.866 | 1.56   1.47   +0.042   | 1.58 1.38 | 1.58  1.38 | 2.04  2.10 | 79% (row corr +0.80)
+   10 | +0.041  +0.040 | 1.61   1.48     1.58 | 0.919 | 1.51   1.44   +0.033   | 1.55 1.38 | 1.55  1.38 | 2.06  2.15 | 74% (row corr +0.70)
+   20 | +0.020  +0.018 | 1.60   1.52     1.58 | 0.960 | 1.50   1.58   -0.008   | 1.53 1.37 | 1.53  1.37 | 2.03  1.90 | 75% (row corr +0.70)
+  kappa (mean of three tiers) +0.041   kappa_hat (LOO self part) +0.022

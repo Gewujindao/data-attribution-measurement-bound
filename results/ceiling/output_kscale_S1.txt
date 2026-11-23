@@ -1,0 +1,16 @@
+﻿[S1] k=300 N=1000 L* 0.865
+  k'   rank90 (3 subsets)        B at LDS 0.8 | B at 0.9 L*   k/rank90
+    25  [19, 19, 19]  [19, 19, 19] | [18, 17, 18]   1.32
+    50  [35, 35, 34]  [37, 37, 35] | [33, 34, 32]   1.44
+   100  [57, 56, 58]  [60, 58, 61] | [53, 52, 53]   1.75
+   150  [76, 76, 75]  [78, 80, 77] | [69, 71, 68]   1.98
+   200  [88, 90, 88]  [93, 95, 95] | [82, 82, 81]   2.26
+   300  [106]  [112] | [97]   2.83
+  local exponent d log rank90 / d log k between consecutive k': 0.87 0.72 0.70 0.55 0.44
+  saturating fit rank90(k') = a k'/(1+k'/D): a 0.850 D 215; max rel. misfit 0.018; limit a*D 183; implied local exponent 1/(1+k/D) at k=100/300/900: 0.68 0.42 0.19
+  tau2 = mean squared off-diagonal cosine 0.0134: participation-ratio form gives D = (1-tau2)/tau2 = 73
+  E1 fits on 60 rows (5 draws): [(1.05, 0.1), (1.05, 0.2), (0.9, 0.0), (1.05, 0.15), (1.05, 0.2)]
+  surrogate (alpha 1.05, f 0.1): population rank90 = 569
+  surrogate rank90(k'): 25:20 50:38 100:68 200:117 300:162 600:250 900:307 1500:377
+  surrogate local exponents: 25-50:0.93 50-100:0.84 100-200:0.78 200-300:0.80 300-600:0.63 600-900:0.51 900-1500:0.40
+total 12s

@@ -1,0 +1,21 @@
+﻿(1a) Pearson: the error carries the linear part of the response that the exact row misses (kappa > 0)
+   exact row          rho +1.000  LDS_P 0.757  rho*L*_P +0.757  | LDS_S 0.738  rho*L*_S +0.738
+   row + h (rho<1)    rho +0.793  LDS_P 0.958  rho*L*_P +0.600  | LDS_S 0.954  rho*L*_S +0.585
+   h only (rho=0)     rho -0.001  LDS_P 0.572  rho*L*_P -0.001  | LDS_S 0.555  rho*L*_S -0.001
+(1b) Spearman with heavy tails, actual exactly linear (L* = 1, kappa = 0)
+   H= 30 drop the big entry       rho 0.735  LDS_S 0.984  rho*L*_S 0.735  ratio 1.34   (LDS_P 0.753 = rho 0.735)
+   H= 30 keep only the big entry  rho 0.678  LDS_S 0.166  rho*L*_S 0.678  ratio 0.24   (LDS_P 0.673 = rho 0.678)
+   H=100 drop the big entry       rho 0.307  LDS_S 0.979  rho*L*_S 0.307  ratio 3.19   (LDS_P 0.301 = rho 0.307)
+   H=100 keep only the big entry  rho 0.951  LDS_S 0.166  rho*L*_S 0.951  ratio 0.17   (LDS_P 0.946 = rho 0.951)
+   H=300 drop the big entry       rho 0.102  LDS_S 0.980  rho*L*_S 0.102  ratio 9.65   (LDS_P 0.095 = rho 0.102)
+   H=300 keep only the big entry  rho 0.995  LDS_S 0.166  rho*L*_S 0.995  ratio 0.17   (LDS_P 0.994 = rho 0.995)
+(1c) Gaussian rows, actual = beta*p + independent noise: LDS_S vs rho*L*_S and the link g(r)=6/pi asin(r/2)
+   noise 0.3: rho 0.961  LDS_S 0.808  rho*L*_S 0.814  ratio 0.993  g(LDS_P) 0.809
+   noise 1.0: rho 0.714  LDS_S 0.605  rho*L*_S 0.605  ratio 1.000  g(LDS_P) 0.600
+   noise 2.0: rho 0.472  LDS_S 0.397  rho*L*_S 0.400  ratio 0.993  g(LDS_P) 0.399
+
+(2) published table (k=500, B=100=0.2k): Spell / spherical-SVD oracle / rank-B SVD of raw Y
+   CIFAR-10 1%     Spell<oracle True  Spell>raw-SVD True  headroom oracle-Spell 0.0651  Spell/oracle 0.875
+   CIFAR-10 5%     Spell<oracle True  Spell>raw-SVD True  headroom oracle-Spell 0.0299  Spell/oracle 0.925
+   TinyStories 1%  Spell<oracle True  Spell>raw-SVD True  headroom oracle-Spell 0.0679  Spell/oracle 0.889
+   TinyStories 5%  Spell<oracle True  Spell>raw-SVD True  headroom oracle-Spell 0.0729  Spell/oracle 0.883

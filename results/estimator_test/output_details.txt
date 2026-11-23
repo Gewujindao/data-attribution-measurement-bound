@@ -1,0 +1,82 @@
+﻿[setting_H1] k=100 N=1000 rank90=49 (rank90/k 0.49)  L*_S 0.518 (sd 0.102)  L*_P 0.555  L*_S-g(L*_P) -0.021  oracle LDS at 0.1k/0.2k 0.289/0.376  (0s)
+   B   LDS_S  rhoL*_S ratioS | LDS_P  rhoL*_P ratioP | mean kappa | g(LDS_P)-LDS_S
+     5  0.230  0.308  0.749 | 0.225  0.327  0.689 | -0.173 | -0.014
+    10  0.289  0.368  0.785 | 0.298  0.392  0.759 | -0.182 | -0.002
+    20  0.376  0.426  0.882 | 0.398  0.455  0.874 | -0.133 | +0.009
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.162
+[setting_B] k=400 N=1200 rank90=111 (rank90/k 0.28)  L*_S 0.827 (sd 0.051)  L*_P 0.771  L*_S-g(L*_P) +0.070  oracle LDS at 0.1k/0.2k 0.629/0.723  (8s)
+    20  0.523  0.585  0.894 | 0.486  0.545  0.892 | -0.115 | -0.052
+    40  0.629  0.680  0.924 | 0.593  0.634  0.935 | -0.103 | -0.053
+    80  0.723  0.757  0.955 | 0.684  0.706  0.969 | -0.076 | -0.055
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.098
+[digits_h32_N1000_k300] k=300 N=1000 rank90=106 (rank90/k 0.35)  L*_S 0.865 (sd 0.042)  L*_P 0.799  L*_S-g(L*_P) +0.078  oracle LDS at 0.1k/0.2k 0.579/0.703  (4s)
+    15  0.454  0.532  0.852 | 0.413  0.488  0.846 | -0.143 | -0.055
+    30  0.579  0.648  0.893 | 0.540  0.597  0.905 | -0.125 | -0.055
+    60  0.703  0.754  0.932 | 0.666  0.696  0.957 | -0.079 | -0.053
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.115
+[setting_A] P=8970 T=400 test acc 0.980  6.3s
+[setting_A] P=8970 T=400 test acc 0.980  4.2s
+[setting_A] P=8970 T=400 test acc 0.980  3.5s
+[setting_A] P=8970 T=400 test acc 0.980  3.9s
+[setting_A] P=8970 T=400 test acc 0.980  8.7s
+[setting_H3] P=3466 T=1500 test acc 0.550  9.6s
+[setting_H3] P=3466 T=1500 test acc 0.550  15.1s
+[setting_H3] k=300 N=3000 rank90=25 (rank90/k 0.08)  L*_S 0.068 (sd 0.092)  L*_P 0.070  L*_S-g(L*_P) +0.001  oracle LDS at 0.1k/0.2k 0.055/0.064  (23s)
+    15  0.044  0.061  0.716 | 0.046  0.063  0.731 | -0.042 | +0.000 | median beta_W 0.01 beta_perp 0.03; sign(kappa)=sign(bW-bP) for 98% of rows
+    30  0.055  0.066  0.844 | 0.057  0.068  0.837 | -0.046 | -0.001 | median beta_W 0.01 beta_perp 0.03; sign(kappa)=sign(bW-bP) for 98% of rows
+    60  0.064  0.068  0.942 | 0.065  0.070  0.933 | -0.038 | -0.001 | median beta_W 0.01 beta_perp 0.06; sign(kappa)=sign(bW-bP) for 97% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.042
+[setting_B] k=400 N=1200 rank90=111 (rank90/k 0.28)  L*_S 0.827 (sd 0.051)  L*_P 0.771  L*_S-g(L*_P) +0.070  oracle LDS at 0.1k/0.2k 0.629/0.723  (14s)
+    20  0.523  0.585  0.894 | 0.486  0.545  0.892 | -0.115 | -0.052 | median beta_W 1.23 beta_perp 1.51; sign(kappa)=sign(bW-bP) for 94% of rows
+    40  0.629  0.680  0.924 | 0.593  0.634  0.935 | -0.103 | -0.053 | median beta_W 1.30 beta_perp 1.55; sign(kappa)=sign(bW-bP) for 92% of rows
+    80  0.723  0.757  0.955 | 0.684  0.706  0.969 | -0.076 | -0.055 | median beta_W 1.35 beta_perp 1.54; sign(kappa)=sign(bW-bP) for 82% of rows
+[digits_h32_N1000_k300] k=300 N=1000 rank90=106 (rank90/k 0.35)  L*_S 0.865 (sd 0.042)  L*_P 0.799  L*_S-g(L*_P) +0.078  oracle LDS at 0.1k/0.2k 0.579/0.703  (6s)
+    15  0.454  0.532  0.852 | 0.413  0.488  0.846 | -0.143 | -0.055 | median beta_W 1.25 beta_perp 1.59; sign(kappa)=sign(bW-bP) for 96% of rows
+    30  0.579  0.648  0.893 | 0.540  0.597  0.905 | -0.125 | -0.055 | median beta_W 1.34 beta_perp 1.60; sign(kappa)=sign(bW-bP) for 96% of rows
+    60  0.703  0.754  0.932 | 0.666  0.696  0.957 | -0.079 | -0.053 | median beta_W 1.41 beta_perp 1.59; sign(kappa)=sign(bW-bP) for 87% of rows
+[setting_A] k=300 N=1000 rank90=93 (rank90/k 0.31)  L*_S 0.504 (sd 0.151)  L*_P 0.530  L*_S-g(L*_P) -0.009  oracle LDS at 0.1k/0.2k 0.360/0.427  (4s)
+    15  0.284  0.353  0.806 | 0.271  0.367  0.740 | -0.186 | -0.024 | median beta_W 0.78 beta_perp 1.44; sign(kappa)=sign(bW-bP) for 98% of rows
+    30  0.360  0.406  0.887 | 0.359  0.424  0.846 | -0.144 | -0.015 | median beta_W 0.92 beta_perp 1.45; sign(kappa)=sign(bW-bP) for 98% of rows
+    60  0.427  0.454  0.940 | 0.444  0.477  0.931 | -0.096 | +0.002 | median beta_W 1.00 beta_perp 1.43; sign(kappa)=sign(bW-bP) for 95% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.142
+[setting_C] P=2533 T=400 test acc 0.970  6.9s
+[setting_C] k=500 N=2000 rank90=126 (rank90/k 0.25)  L*_S 0.804 (sd 0.059)  L*_P 0.692  L*_S-g(L*_P) +0.125  oracle LDS at 0.1k/0.2k 0.620/0.727  (11s)
+    25  0.492  0.580  0.848 | 0.441  0.496  0.888 | -0.150 | -0.064 | median beta_W 1.38 beta_perp 1.76; sign(kappa)=sign(bW-bP) for 97% of rows
+    50  0.620  0.669  0.928 | 0.551  0.575  0.960 | -0.096 | -0.084 | median beta_W 1.48 beta_perp 1.73; sign(kappa)=sign(bW-bP) for 90% of rows
+   100  0.727  0.744  0.977 | 0.636  0.640  0.994 | -0.036 | -0.105 | median beta_W 1.54 beta_perp 1.62; sign(kappa)=sign(bW-bP) for 83% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.094
+[setting_F] P=1441 T=400 test mse 0.060  3.9s
+[setting_F] k=300 N=1000 rank90=46 (rank90/k 0.15)  L*_S 0.953 (sd 0.031)  L*_P 0.951  L*_S-g(L*_P) +0.006  oracle LDS at 0.1k/0.2k 0.857/0.908  (2s)
+    15  0.796  0.825  0.966 | 0.805  0.823  0.979 | -0.179 | -0.004 | median beta_W 1.01 beta_perp 1.14; sign(kappa)=sign(bW-bP) for 86% of rows
+    30  0.857  0.878  0.976 | 0.864  0.876  0.986 | -0.158 | -0.003 | median beta_W 1.03 beta_perp 1.16; sign(kappa)=sign(bW-bP) for 79% of rows
+    60  0.908  0.919  0.988 | 0.912  0.917  0.995 | -0.097 | -0.003 | median beta_W 1.04 beta_perp 1.13; sign(kappa)=sign(bW-bP) for 70% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.144
+[setting_H2] P=3466 T=400 test acc 0.983  5.3s
+[setting_H2] k=300 N=1000 rank90=116 (rank90/k 0.39)  L*_S 0.865 (sd 0.041)  L*_P 0.804  L*_S-g(L*_P) +0.073  oracle LDS at 0.1k/0.2k 0.550/0.683  (4s)
+    15  0.426  0.512  0.832 | 0.396  0.472  0.840 | -0.131 | -0.044 | median beta_W 1.28 beta_perp 1.56; sign(kappa)=sign(bW-bP) for 91% of rows
+    30  0.550  0.629  0.874 | 0.523  0.582  0.899 | -0.115 | -0.043 | median beta_W 1.38 beta_perp 1.60; sign(kappa)=sign(bW-bP) for 94% of rows
+    60  0.683  0.740  0.924 | 0.659  0.686  0.959 | -0.069 | -0.041 | median beta_W 1.42 beta_perp 1.60; sign(kappa)=sign(bW-bP) for 87% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.105
+[setting_E] P=3466 T=400 test acc 0.960  6.4s
+[setting_E] P=3466 T=400 test acc 0.960  3.5s
+[setting_D] P=13256 T=400 test acc 1.000  3.4s
+[setting_D] P=13256 T=400 test acc 1.000  2.5s
+[setting_D] P=13256 T=400 test acc 1.000  2.1s
+[setting_D] P=13256 T=400 test acc 1.000  1.8s
+[setting_D] k=600 N=800 rank90=11 (rank90/k 0.02)  L*_S 0.999 (sd 0.001)  L*_P 0.999  L*_S-g(L*_P) +0.000  oracle LDS at 0.1k/0.2k 0.982/0.995  (8s)
+    30  0.960  0.979  0.981 | 0.979  0.979  1.000 | -0.057 | +0.017 | median beta_W 1.00 beta_perp 1.00; sign(kappa)=sign(bW-bP) for 55% of rows
+    60  0.982  0.991  0.991 | 0.991  0.991  1.000 | -0.040 | +0.008 | median beta_W 1.00 beta_perp 0.98; sign(kappa)=sign(bW-bP) for 51% of rows
+   120  0.995  0.998  0.998 | 0.998  0.998  1.000 | -0.021 | +0.002 | median beta_W 1.00 beta_perp 1.01; sign(kappa)=sign(bW-bP) for 47% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.039
+[setting_E] k=800 N=500 rank90=111 (rank90/k 0.14)  L*_S 0.846 (sd 0.043)  L*_P 0.807  L*_S-g(L*_P) +0.052  oracle LDS at 0.1k/0.2k 0.732/0.816  (12s)
+    40  0.624  0.685  0.912 | 0.619  0.653  0.948 | -0.092 | -0.021 | median beta_W 1.51 beta_perp 1.76; sign(kappa)=sign(bW-bP) for 93% of rows
+    80  0.732  0.772  0.947 | 0.722  0.737  0.980 | -0.054 | -0.026 | median beta_W 1.57 beta_perp 1.74; sign(kappa)=sign(bW-bP) for 84% of rows
+   160  0.816  0.827  0.987 | 0.790  0.789  1.001 | +0.011 | -0.040 | median beta_W 1.60 beta_perp 1.53; sign(kappa)=sign(bW-bP) for 73% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.045
+[digits_h128_N1000_k300] P=26122 T=400 train acc 1.000 test acc 0.980  1.3s
+[digits_h128_N1000_k300] P=26122 T=400 train acc 1.000 test acc 0.980  1.9s
+[digits_h128_N1000_k300] k=300 N=1000 rank90=118 (rank90/k 0.39)  L*_S 0.846 (sd 0.042)  L*_P 0.805  L*_S-g(L*_P) +0.054  oracle LDS at 0.1k/0.2k 0.519/0.654  (2s)
+    15  0.406  0.446  0.909 | 0.410  0.419  0.980 | -0.014 | -0.010 | median beta_W 1.84 beta_perp 1.89; sign(kappa)=sign(bW-bP) for 87% of rows
+    30  0.519  0.575  0.901 | 0.539  0.543  0.993 | -0.000 | +0.004 | median beta_W 1.85 beta_perp 1.88; sign(kappa)=sign(bW-bP) for 90% of rows
+    60  0.654  0.704  0.929 | 0.675  0.668  1.011 | +0.032 | +0.005 | median beta_W 1.89 beta_perp 1.78; sign(kappa)=sign(bW-bP) for 90% of rows
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = +0.006

@@ -1,0 +1,67 @@
+﻿k=100 N=1000 E=20 P=8970 train acc 1.000 test acc 0.990
+
+== exact metagradient Y ==
+LDS 1%: mean 0.858  min 0.714  bottom-quartile-norm 0.845
+LDS 5%: mean 0.809  min 0.604  bottom-quartile-norm 0.778
+  1%: Pearson(pred,actual) pooled-per-point mean 0.839; |actual| median 3.46e-02, slope median 1.608
+  5%: Pearson(pred,actual) pooled-per-point mean 0.813; |actual| median 1.32e-01, slope median 1.556
+
+== cheap baselines ==
+TracIn (test grad at end, train grads along path): 1% 0.334 5% 0.460
+TracIn (both grads at each step): 1% 0.314 5% 0.445
+
+== b1/b2 spectra ==
+raw: PR 18.9  entropy-erank 45.5  rank90 53  rank99 86  (k=100)  s1/s10 3.1
+row-normalized: PR 58.1  entropy-erank 72.5  rank90 65  rank99 93  (k=100)  s1/s10 1.4
+col-normalized: PR 49.1  entropy-erank 65.2  rank90 60  rank99 90  (k=100)  s1/s10 1.4
+row norm span log10(max/min) 1.04; col norm span 2.49; col norm top10% share of ||Y||^2 0.59
+
+== b3 correlations ==
+test-test |cos|: same class median 0.101, diff class median 0.036; same-class mean cos 0.123
+train-train |cos| (over test points): same class median 0.178, diff 0.069
+
+== b4 concentration ==
+  top 1% train points hold 0.48 of row L2^2 (mean over test points)
+  top 5% train points hold 0.74 of row L2^2 (mean over test points)
+  top 10% train points hold 0.84 of row L2^2 (mean over test points)
+  top 25% train points hold 0.95 of row L2^2 (mean over test points)
+  same-class train points hold 0.51 of row L2^2 (class share 0.10)
+  top-20 train set Jaccard between same-class test points: mean 0.105
+
+== b5 training stage ==
+  energy share by epoch: 0.390 0.416 0.030 0.010 0.005 0.004 0.003 0.002 0.002 0.002 0.002 0.002 0.003 0.003 0.004 0.005 0.009 0.016 0.043 0.049
+  first 1 epochs only: LDS 1% 0.453 | last 1 epochs only: 0.337
+  first 2 epochs only: LDS 1% 0.509 | last 2 epochs only: 0.393
+  first 4 epochs only: LDS 1% 0.547 | last 4 epochs only: 0.512
+  first 6 epochs only: LDS 1% 0.568 | last 6 epochs only: 0.590
+  first 10 epochs only: LDS 1% 0.611 | last 10 epochs only: 0.698
+  single-epoch LDS 1%: 0.45 0.36 0.37 0.42 0.43 0.45 0.50 0.51 0.54 0.56 0.58 0.60 0.61 0.62 0.61 0.60 0.57 0.53 0.44 0.34
+  cos(Y^(e), Y) per epoch: 0.51 0.59 0.62 0.53 0.53 0.55 0.58 0.60 0.60 0.60 0.61 0.60 0.61 0.59 0.58 0.54 0.48 0.44 0.37 0.28
+
+== a) oracle curves: LDS 1% (5%) vs B ==
+a1 test-side spherical SVD oracle: B=1:0.093(0.082)  B=2:0.177(0.157)  B=5:0.266(0.266)  B=10:0.389(0.379)  B=20:0.534(0.522)  B=30:0.624(0.606)  B=50:0.731(0.713)  B=80:0.828(0.790)  B=100:0.858(0.809)
+   B80 = 80  (B/k = 0.80)
+   raw truncated SVD: B=1:0.059(0.040)  B=2:0.110(0.084)  B=5:0.208(0.188)  B=10:0.335(0.310)  B=20:0.486(0.466)  B=30:0.585(0.566)  B=50:0.716(0.694)  B=80:0.827(0.788)  B=100:0.858(0.809)
+   B80 = 80  (B/k = 0.80)
+a2 train-side col-normalized SVD oracle: B=1:0.086(0.078)  B=2:0.137(0.132)  B=5:0.229(0.201)  B=10:0.326(0.288)  B=20:0.482(0.443)  B=30:0.572(0.527)  B=50:0.684(0.658)  B=80:0.809(0.773)  B=100:0.858(0.809)
+   B80 = 80  (B/k = 0.80)
+a3 sparse oracle (top-s per row): s=5:0.311  s=10:0.407  s=20:0.503  s=50:0.634  s=100:0.731  s=200:0.807  s=500:0.854  s=1000:0.858
+a6 column-subset oracle (B forward replays on the B largest-norm training points): B=10:0.175  B=20:0.216  B=50:0.332  B=100:0.458  B=200:0.683  B=500:0.818
+a7 scaling with k: spherical-SVD oracle on random subsets of k' test points
+   k'=25: PR(row-norm) 20.7 (PR/k' 0.83); exact 0.867; B=2(10%):0.332  B=5(20%):0.468  B=8(30%):0.565  B=12(50%):0.662  B=20(80%):0.811
+   k'=50: PR(row-norm) 36.2 (PR/k' 0.72); exact 0.860; B=5(10%):0.337  B=10(20%):0.486  B=15(30%):0.578  B=25(50%):0.684  B=40(80%):0.814
+   k'=100: PR(row-norm) 58.1 (PR/k' 0.58); exact 0.858; B=10(10%):0.389  B=20(20%):0.534  B=30(30%):0.624  B=50(50%):0.731  B=80(80%):0.828
+a4 cluster oracle (k-means on true normalized rows; centroid = one replay of the cluster-sum test function):
+   B=5: norm-weighted 0.243  raw-sum 0.228
+   B=10: norm-weighted 0.350  raw-sum 0.343
+   B=20: norm-weighted 0.465  raw-sum 0.460
+   B=30: norm-weighted 0.542  raw-sum 0.536
+   B=50: norm-weighted 0.670  raw-sum 0.668
+a4 cheap clustering by test label (B=10): raw-sum 0.344
+a5 combined oracle (rank-B spherical SVD + top-s residual per row) LDS 1%:
+   B=5 s=10: 0.407
+   B=5 s=50: 0.643
+   B=10 s=10: 0.494
+   B=10 s=50: 0.673
+   B=20 s=10: 0.596
+   B=20 s=50: 0.711

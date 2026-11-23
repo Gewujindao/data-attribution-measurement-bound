@@ -1,0 +1,27 @@
+﻿[exact] P=3466 T=400 test acc 0.980  1.1s
+exact Y by adjoint recursion 7.4s
+  finite-difference check train sample 3: max|fd-Y| 1.14e-09  max|Y| 5.98e-02
+  finite-difference check train sample 500: max|fd-Y| 2.37e-10  max|Y| 3.98e-02
+  finite-difference check train sample 997: max|fd-Y| 6.47e-11  max|Y| 2.43e-02
+truth done 11.8s; exact LDS 1% = 0.869
+
+== LDS vs centred cosine rho (spherical SVD oracle on full Y) ==
+  B=10: LDS 0.437  mean rho 0.574  rho*L* 0.499  mean rho^2 0.346
+  B=20: LDS 0.570  mean rho 0.730  rho*L* 0.634  mean rho^2 0.540
+  B=30: LDS 0.648  mean rho 0.817  rho*L* 0.710  mean rho^2 0.670
+  B=50: LDS 0.761  mean rho 0.918  rho*L* 0.798  mean rho^2 0.844
+  B=60: LDS 0.796  mean rho 0.949  rho*L* 0.824  mean rho^2 0.900
+  B=80: LDS 0.846  mean rho 0.985  rho*L* 0.855  mean rho^2 0.970
+  full Y row-normalised: PR 47.8 rank90 60 rank85 51
+
+== test 2: exact late part (truncated replays) + rank-B spherical oracle on the early part ==
+  late 1 ep (cost 0.05k): late-only LDS 0.334; early part energy 0.94 PR 46.1 rank90 60; B=5:0.385 B=10:0.485 B=15:0.552 B=20:0.600 B=30:0.671 B=50:0.769
+  late 2 ep (cost 0.10k): late-only LDS 0.396; early part energy 0.89 PR 43.3 rank90 59; B=5:0.447 B=10:0.528 B=15:0.590 B=20:0.627 B=30:0.694 B=50:0.780
+  late 3 ep (cost 0.15k): late-only LDS 0.450; early part energy 0.85 PR 42.2 rank90 58; B=5:0.492 B=10:0.562 B=15:0.617 B=20:0.650 B=30:0.712 B=50:0.789
+  late 4 ep (cost 0.20k): late-only LDS 0.502; early part energy 0.81 PR 41.7 rank90 58; B=5:0.531 B=10:0.591 B=15:0.640 B=20:0.669 B=30:0.726 B=50:0.796
+  late 6 ep (cost 0.30k): late-only LDS 0.573; early part energy 0.73 PR 41.9 rank90 57; B=5:0.592 B=10:0.636 B=15:0.679 B=20:0.700 B=30:0.748 B=50:0.808
+  late 10 ep (cost 0.50k): late-only LDS 0.660; early part energy 0.61 PR 42.5 rank90 57; B=5:0.667 B=10:0.698 B=15:0.728 B=20:0.743 B=30:0.780 B=50:0.824
+  per-epoch row-normalised rank90 of single-epoch parts: 48 54 48 49 48 48 50 50 51 50 51 51 51 50 49 47 44 40 28 20
+  cumulative early part (epochs < e) rank90: 1:48 2:52 5:55 10:57 15:58
+total 12.2s
+{"elapsed_s": 14.9}

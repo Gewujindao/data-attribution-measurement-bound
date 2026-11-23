@@ -1,0 +1,1 @@
+{"name": "relu", "P": 3466, "N": 1000, "P_over_N": 3.466, "train_loss": 0.002118262895397602, "train_acc": 1.0, "test_acc": 0.99}

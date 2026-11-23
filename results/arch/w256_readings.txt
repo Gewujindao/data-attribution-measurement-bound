@@ -1,0 +1,18 @@
+[w256] k=100 N=1000  L*_S 0.824 (sd 0.046)  L*_P 0.786  offset L*_S-g(L*_P) +0.051  actual/pred slope median 1.83
+  spectrum: rank50/80/90 = 22/50/65 (rank90/k 0.65); PR 59.6; tau2 0.0068; F(0.05k,0.1k,0.2k,0.3k,0.5k) = 0.164 0.287 0.472 0.610 0.807
+  SVD oracle LDS at 0.05k/0.1k/0.2k/0.3k/0.5k: 0.245 0.363 0.493 0.578 0.690
+  [1%]  B   LDS_S  rhoL*_S ratioS | LDS_P  rhoL*_P ratioP | mean kappa | identity max | beta_W beta_perp sign-agree
+       5  0.245  0.298  0.824 | 0.226  0.281  0.804 | -0.068 | 5.6e-17 | 1.50 1.99 81%
+      10  0.363  0.421  0.862 | 0.353  0.398  0.889 | -0.059 | 5.6e-17 | 1.69 2.03 89%
+      20  0.493  0.556  0.887 | 0.498  0.528  0.944 | -0.041 | 5.6e-17 | 1.81 2.01 89%
+      30  0.578  0.641  0.901 | 0.591  0.609  0.969 | -0.029 | 5.6e-17 | 1.82 2.03 90%
+      50  0.690  0.740  0.932 | 0.701  0.706  0.993 | -0.006 | 0.0e+00 | 1.91 1.92 76%
+  kappa_true (mean over B=0.05k,0.1k,0.2k) = -0.056
+  class ceiling B=10: mean rho SVD 0.5107 certified-up 0.5209 (gap 0.0102) | mean L*rho SVD 0.4207 up 0.4296 (gap 0.0089)  (1s)
+  class ceiling B=20: mean rho SVD 0.6750 certified-up 0.6803 (gap 0.0053) | mean L*rho SVD 0.5564 up 0.5611 (gap 0.0047)  (1s)
+  random         B=10: mean rho^2 0.149 (<= F(B) 0.287)  LDS 0.257  oracle 0.363  ratio 0.710
+  subspace_iter  B=10: mean rho^2 0.102 (<= F(B) 0.287)  LDS 0.219  oracle 0.363  ratio 0.603
+  random         B=20: mean rho^2 0.292 (<= F(B) 0.472)  LDS 0.368  oracle 0.493  ratio 0.746
+  subspace_iter  B=20: mean rho^2 0.198 (<= F(B) 0.472)  LDS 0.291  oracle 0.493  ratio 0.590
+  E3 s=10 (20 draws): LDS err 0.081[0.151]  r90 err 0.17[0.42] (bias -0.17)  conv-only 0.050  | E0: LDS err 0.185  r90 bias +0.31 | kappa_LOO -0.002  (3s)
+  E3 s=20 (20 draws): LDS err 0.054[0.104]  r90 err 0.10[0.19] (bias -0.08)  conv-only 0.045  | E0: LDS err 0.146  r90 bias +0.25 | kappa_LOO -0.018  (5s)

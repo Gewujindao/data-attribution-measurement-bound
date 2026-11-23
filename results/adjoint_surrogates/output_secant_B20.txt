@@ -1,0 +1,9 @@
+﻿[secant] P=3466 T=400 test acc 0.980  1.1s
+== test 3: B=20 exact replays stored (4.0s); held-out 40 test points, exact LDS 0.877 ==
+  S1 parameter-space regression on probes (unexplained grad norm 0.87): LDS 0.169  mean centred cos with exact 0.225  (4.0s)
+  A0 zero Hessian: LDS 0.341  mean centred cos with exact 0.326  (5.4s)
+  S2 same-step secant pairs only: LDS 0.382  mean centred cos with exact 0.353  (7.2s)
+  S3 same-step + within-window pairs, W=5: LDS 0.013  mean centred cos with exact -0.001  (10.5s)
+  S3 same-step + within-window pairs, W=20: LDS 0.012  mean centred cos with exact -0.009  (16.3s)
+total 16.3s
+{"elapsed_s": 19.0}
